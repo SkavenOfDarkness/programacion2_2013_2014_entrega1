@@ -5,12 +5,14 @@
 package programacion2_2013_2014_entrega1;
 
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Persona implements Serializable {
     static BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
     private String NIF;
     private String nombre;
-    private int edad;   
+    private int edad;
 
     public Persona()  {
         String entrada;
@@ -41,8 +43,30 @@ public class Persona implements Serializable {
                 edad);
         return cadena;
     }
+
+    public void setNIF(String NIF) {
+        this.NIF = NIF;
+    }
     
     public String getNif() {
         return NIF;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+    
+    public void actualiza(ObjectOutputStream oos) {
+        Persona actu = new Persona(NIF, nombre, edad);
+        try {
+            oos.writeObject(actu);
+        }
+        catch (IOException e) {
+            System.out.println("error --> " + e);
+        }
     }
 }

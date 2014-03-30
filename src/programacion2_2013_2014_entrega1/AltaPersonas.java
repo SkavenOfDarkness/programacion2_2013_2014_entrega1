@@ -46,7 +46,7 @@ public class AltaPersonas {
     }
 
     public static void borrarPantalla() {
-                for (int i=0;i<50;i++) {
+        for (int i=0;i<50;i++) {
             System.out.print("\n");
         }
     } 

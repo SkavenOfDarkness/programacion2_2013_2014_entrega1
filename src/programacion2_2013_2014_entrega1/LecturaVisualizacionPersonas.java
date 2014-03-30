@@ -18,10 +18,10 @@ public class LecturaVisualizacionPersonas {
         ObjectInputStream objeto =null;
         try {
             borrarPantalla();
-            objeto = new ObjectInputStream(new FileInputStream("ficheros/personas.dat"));
+            objeto = new ObjectInputStream(new FileInputStream("ficheros/personasModificadas.dat"));
             try {
                 Persona var=(Persona)objeto.readObject();
-                while (var!=null) {
+                while (var != null) {
                     System.out.println(var.toString());
                     var=(Persona)objeto.readObject();
                 }
@@ -34,11 +34,11 @@ public class LecturaVisualizacionPersonas {
                 catch (IOException e1) {}
             }
             catch (ClassNotFoundException e) {
-                System.out.println("error  --> " + e.toString());
+                System.out.println("error --> " + e.toString());
             }
         }
         catch (IOException e) {
-            System.out.println("error  --> " + e.toString());
+            System.out.println("error --> " + e.toString());
         }
         finally {
             if (objeto != null) {
